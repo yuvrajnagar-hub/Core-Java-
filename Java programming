@@ -1,0 +1,75 @@
+public class Main {
+    // Main class to run the program
+        public static void main(String[] args) {
+            // Creating objects of Car and Bike
+            Car car = new Car("Toyota", "Corolla", 2020, 180);
+            Bike bike = new Bike("Yamaha", "FZ", 2022, 150);
+
+            // Printing car details
+            System.out.println("Car Details:");
+            System.out.println("Make: " + car.make);
+            System.out.println("Model: " + car.model);
+            System.out.println("Year: " + car.year);
+            System.out.println("Max Speed: " + car.maximumSpeed);
+            car.drive();
+
+            System.out.println();
+
+            // Printing bike details
+            System.out.println("Bike Details:");
+            System.out.println("Make: " + bike.make);
+            System.out.println("Model: " + bike.model);
+            System.out.println("Year: " + bike.year);
+            System.out.println("Max Speed: " + bike.maximumSpeed);
+            bike.drive();
+        }
+    }
+
+    // Base class Vehicle
+    class Vehicle {
+        String make;
+        String model;
+        int year;
+        int maximumSpeed;
+
+        // Constructor for Vehicle
+        Vehicle(String make, String model, int year, int maximumSpeed) {
+            this.make = make;
+            this.model = model;
+            this.year = year;
+            this.maximumSpeed = maximumSpeed;
+        }
+
+        // Method to be overridden
+        void drive() {
+            System.out.println("Vehicle is driving");
+        }
+    }
+
+    // Car class extending Vehicle
+    class Car extends Vehicle {
+        // Constructor for Car
+        Car(String make, String model, int year, int maximumSpeed) {
+            super(make, model, year, maximumSpeed); // Calling parent constructor
+        }
+
+        // Overriding drive method
+        @Override
+        void drive() {
+            System.out.println(make + " " + model + " Car is driving.");
+        }
+    }
+
+    // Bike class extending Vehicle
+    class Bike extends Vehicle {
+        // Constructor for Bike
+        Bike(String make, String model, int year, int maximumSpeed) {
+            super(make, model, year, maximumSpeed); // Calling parent constructor
+        }
+
+        // Overriding drive method
+        @Override
+        void drive() {
+            System.out.println(make + " " + model + " Bike is driving.");
+        }
+    }
